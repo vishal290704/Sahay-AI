@@ -10,4 +10,5 @@ export async function GET(req:NextRequest) {
         return NextResponse.json({message:"Code is not found"},{status:400})
     }
     const session = scalekit.authenticateWithCode(code, redirectUri)
+    const response = NextResponse.redirect(`${process.env.NEXT_PUBLIC_APP_URL}`)
 }
