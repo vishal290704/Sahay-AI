@@ -8,8 +8,9 @@ export async function getSession() {
     return null
   }
   try {
-    const result = await scalekit.validateToken(token!)
-    console.log(result)
+    const result:any = await scalekit.validateToken(token!)
+    const user = await scalekit.user.getUser(result.sub)
+    return user
   } catch (error) {
     console.log(error)
   }
@@ -21,3 +22,4 @@ export async function getSession() {
 //callback me session save h user ka jab wo login hojaye, to use callback ke session se access token le aayenge.
 //uss access_token se value lelenge
 //fir result variable me scalekit ke thorigh token save kr lenge
+//user ka id 'sub' variable me store h to 'user' variable me user ka 'sub' store kr lenge

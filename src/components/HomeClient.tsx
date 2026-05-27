@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "motion/react";
-function HomeClient() {
+function HomeClient({email}:{email:string}) {
 
 const handleLogin = ()=>{
     window.location.href="/api/auth/login"
