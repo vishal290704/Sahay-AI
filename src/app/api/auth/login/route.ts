@@ -23,3 +23,10 @@ export async function GET(req: NextRequest) {
 
   return NextResponse.redirect(url);
 }
+
+//Ye login route user ko Scalekit authentication page par bhejne ke liye use hota hai. 
+// Sabse pehle ye app ka callback URL banata hai (/api/auth/callback), 
+// jahan login complete hone ke baad user wapas aayega. Fir scalekit.getAuthorizationUrl() 
+// ke through authentication URL generate hota hai. console.log() debugging ke liye redirect 
+// URI aur generated URL print karta hai. Last me NextResponse.redirect(url) user ko Scalekit 
+// login page par redirect kar deta hai taki user login process start kar sake.

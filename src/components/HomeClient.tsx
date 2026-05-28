@@ -1,11 +1,19 @@
 "use client";
 import React from "react";
 import { motion } from "motion/react";
-function HomeClient({email}:{email:string}) {
+function HomeClient({ email,
+  firstName,
+}: {
+  email: string;
+  firstName: string;}) {
 
 const handleLogin = ()=>{
     window.location.href="/api/auth/login"
 }
+// const firstLetter = email ? email[0].toUpperCase() : ""
+  const firstNamePart = firstName
+    ? firstName
+    : "";
 
   return (
     <div className="min-h-screen bg-linear-to-br from-white to-zinc-50 text-zinc-900 overflow-x-hidden">
@@ -18,13 +26,14 @@ const handleLogin = ()=>{
           <div className="text-lg font-semibold tracking-tight">
             Sahay <span className="text-zinc-400">AI</span>
           </div>
-          <button
+          {email?<p>{firstNamePart}</p>:<button
             className="px-5 py-2 rounded-full bg-black text-white text-sm font-medium
                  hover:bg-zinc-800 transition disabled:opacity-60 flex items-center gap-2"
                 onClick={handleLogin}
           >
             Login
-          </button>
+          </button>}
+          
         </div>
       </motion.div>
     </div>
@@ -32,3 +41,6 @@ const handleLogin = ()=>{
 }
 
 export default HomeClient;
+
+
+//handle login function isiliye banaye h taki jab user login button dabaye wo login api pe chle jaye
