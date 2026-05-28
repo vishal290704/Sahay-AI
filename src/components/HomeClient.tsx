@@ -29,7 +29,7 @@ function HomeClient({
             Sahay <span className="text-zinc-400">AI</span>
           </div>
           {email ? (
-            <div className="">
+            <div className="relative">
               <button
                 className="w-10 h-10 rounded-full bg-black text-white flex items-center 
             justify-center font-semibold hover:scalle-105 transition"
@@ -41,7 +41,10 @@ function HomeClient({
                 <motion.div
                   className="absolute right-0 mt-3 w-44 bg-white rounded-xl shadow-xl border
                  border-zinc-200 overflow-hidden"
-                ></motion.div>
+                >
+                  <button className="w-full text-left px-4 py-3 text-sm hover:bg-zinc-100">Dashboard</button>
+                  <button className="block w-full text-left px-4 py-3 text-sm text-red-600 hover:bg-zinc-100">Logout</button>
+                </motion.div>
               )}
             </div>
           ) : (
