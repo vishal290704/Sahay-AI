@@ -26,7 +26,11 @@ const handleLogin = ()=>{
           <div className="text-lg font-semibold tracking-tight">
             Sahay <span className="text-zinc-400">AI</span>
           </div>
-          {email?<p>{firstNamePart}</p>:<button
+          {email?<div className="">
+            <button className="w-22 h-10 rounded-full bg-black text-white flex items-center justify-center font-semibold hover:scalle-105 transition">
+              {firstNamePart}
+            </button>
+          </div>:<button
             className="px-5 py-2 rounded-full bg-black text-white text-sm font-medium
                  hover:bg-zinc-800 transition disabled:opacity-60 flex items-center gap-2"
                 onClick={handleLogin}
