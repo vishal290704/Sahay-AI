@@ -89,6 +89,13 @@ function HomeClient({
                 Add a powerful AI chatbot to your website in minutes.
                 Let your customers get instant answers using your own business knowledge.
               </p>
+
+             <div className="flex mt-10 gap-4">
+               <button className="px-7 py-3 rounded-xl bg-black text-white font-medium hover:bg-zinc-800 transition disabled:opacity-60">
+                Get Started
+                </button>
+              <button className="">Learn More</button>
+             </div>
             </motion.div>
             <div className="">
 
