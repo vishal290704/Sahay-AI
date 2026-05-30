@@ -81,10 +81,14 @@ function HomeClient({
             animate={{opacity:1, y:0}}        
             transition={{duration:0.7}}
             >
-              <h1>
+              <h1 className="text-4xl md:text-5xl font-semibold leading-tight ">
                 AI Customer Support<br/>
                 Built for modern websites
               </h1>
+              <p className="mt-6 text-sm text-zinc-600 max-w-xl">
+                Add a powerful AI chatbot to your website in minutes.
+                Let your customers get instant answers using your own business knowledge.
+              </p>
             </motion.div>
             <div className="">
 
