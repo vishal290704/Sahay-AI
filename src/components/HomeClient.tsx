@@ -74,6 +74,23 @@ function HomeClient({
           )}
         </div>
       </motion.div>
+      <section className="pt-36 pb-28 px-6">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+            <motion.div 
+            initial={{opacity:0, y:40}}    
+            animate={{opacity:1, y:0}}        
+            transition={{duration:0.7}}
+            >
+              <h1>
+                AI Customer Support<br/>
+                Built for modern websites
+              </h1>
+            </motion.div>
+            <div className="">
+
+            </div>
+          </div>
+      </section>
     </div>
   );
 }
