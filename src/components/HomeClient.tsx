@@ -81,3 +81,6 @@ function HomeClient({
 export default HomeClient;
 
 //handle login function isiliye banaye h taki jab user login button dabaye wo login api pe chle jaye
+
+//useEffect me handler function ka kaam yhi h ki jab Dashboard-Logout wala open ho aur use close krna 
+// rahe screen pe kahin bhi click krke
