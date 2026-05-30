@@ -94,7 +94,7 @@ function HomeClient({
                <button className="px-7 py-3 rounded-xl bg-black text-white font-medium hover:bg-zinc-800 transition disabled:opacity-60">
                 Get Started
                 </button>
-              <button className="">Learn More</button>
+              <button className="px-7 py-3 rounded-xl border border-zinc-300 text-zinc-700 hover:bg-zinc-100 transition">Learn More</button>
              </div>
             </motion.div>
             <div className="">
