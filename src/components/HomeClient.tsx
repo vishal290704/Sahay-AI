@@ -16,16 +16,15 @@ function HomeClient({
   //   ? firstName
   //   : "";
   const [open, setOpen] = useState(false);
-  const popupRef = useRef<HTMLDivElement>(null)
+  const popupRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    const handler=(e:MouseEvent)=>{
-      if(popupRef.current && !popupRef.current.contains(e.target as Node))
-      setOpen(false)
-    }
-    document.addEventListener("mousedown", handler)
-    return ()=> document.removeEventListener("mousedown", handler)
-  }, [])
-  
+    const handler = (e: MouseEvent) => {
+      if (popupRef.current && !popupRef.current.contains(e.target as Node))
+        setOpen(false);
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
 
   return (
     <div className="min-h-screen bg-linear-to-br from-white to-zinc-50 text-zinc-900 overflow-x-hidden">
@@ -49,18 +48,22 @@ function HomeClient({
                 {firstLetter}
               </button>
               <AnimatePresence>
-              {open && (
-                <motion.div
-                initial={{opacity:0, y:-6}}
-                animate={{opacity:1, y:0}}
-                exit={{opacity:0, y:-6}}
-                  className="absolute right-0 mt-3 w-44 bg-white rounded-xl shadow-xl border
+                {open && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -6 }}
+                    className="absolute right-0 mt-3 w-44 bg-white rounded-xl shadow-xl border
                  border-zinc-200 overflow-hidden"
-                >
-                  <button className="w-full text-left px-4 py-3 text-sm hover:bg-zinc-100">Dashboard</button>
-                  <button className="block w-full text-left px-4 py-3 text-sm text-red-600 hover:bg-zinc-100">Logout</button>
-                </motion.div>
-              )}
+                  >
+                    <button className="w-full text-left px-4 py-3 text-sm hover:bg-zinc-100">
+                      Dashboard
+                    </button>
+                    <button className="block w-full text-left px-4 py-3 text-sm text-red-600 hover:bg-zinc-100">
+                      Logout
+                    </button>
+                  </motion.div>
+                )}
               </AnimatePresence>
             </div>
           ) : (
@@ -75,32 +78,42 @@ function HomeClient({
         </div>
       </motion.div>
       <section className="pt-36 pb-28 px-6">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
-            <motion.div 
-            initial={{opacity:0, y:40}}    
-            animate={{opacity:1, y:0}}        
-            transition={{duration:0.7}}
-            >
-              <h1 className="text-4xl md:text-5xl font-semibold leading-tight ">
-                AI Customer Support<br/>
-                Built for modern websites
-              </h1>
-              <p className="mt-6 text-sm text-zinc-600 max-w-xl">
-                Add a powerful AI chatbot to your website in minutes.
-                Let your customers get instant answers using your own business knowledge.
-              </p>
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            <h1 className="text-4xl md:text-5xl font-semibold leading-tight ">
+              AI Customer Support
+              <br />
+              Built for modern websites
+            </h1>
+            <p className="mt-6 text-sm text-zinc-600 max-w-xl">
+              Add a powerful AI chatbot to your website in minutes. Let your
+              customers get instant answers using your own business knowledge.
+            </p>
 
-             <div className="flex mt-10 gap-4">
-               <button className="px-7 py-3 rounded-xl bg-black text-white font-medium hover:bg-zinc-800 transition disabled:opacity-60">
-                Get Started
+            <div className="flex mt-10 gap-4">
+              {email ? (
+                <button className="px-7 py-3 rounded-xl bg-black text-white font-medium hover:bg-zinc-600 transition disabled:opacity-60">
+                  Go to Dashboard
                 </button>
-              <button className="px-7 py-3 rounded-xl border border-zinc-300 text-zinc-700 hover:bg-zinc-100 transition">Learn More</button>
-             </div>
-            </motion.div>
-            <div className="">
+              ) : (
+                <button className="px-7 py-3 rounded-xl bg-black text-white font-medium hover:bg-zinc-600 transition disabled:opacity-60"
+                onClick={handleLogin}
+                >
+                  Get Started
+                </button>
+              )}
 
+              <button className="px-7 py-3 rounded-xl border border-zinc-300 text-zinc-700 hover:bg-zinc-200 transition">
+                Learn More
+              </button>
             </div>
-          </div>
+          </motion.div>
+          <div className=""></div>
+        </div>
       </section>
     </div>
   );
@@ -110,5 +123,8 @@ export default HomeClient;
 
 //handle login function isiliye banaye h taki jab user login button dabaye wo login api pe chle jaye
 
-//useEffect me handler function ka kaam yhi h ki jab Dashboard-Logout wala open ho aur use close krna 
+//useEffect me handler function ka kaam yhi h ki jab Dashboard-Logout wala open ho aur use close krna
 // rahe screen pe kahin bhi click krke
+
+//Agar user login nhi hai to "Go to Dashboard" wala button dikhega aur agar login hai to "get Started" 
+//wala aur isko email ke through hum ternary operator se check krenge
