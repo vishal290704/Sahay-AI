@@ -100,8 +100,9 @@ function HomeClient({
                   Go to Dashboard
                 </button>
               ) : (
-                <button className="px-7 py-3 rounded-xl bg-black text-white font-medium hover:bg-zinc-600 transition disabled:opacity-60"
-                onClick={handleLogin}
+                <button
+                  className="px-7 py-3 rounded-xl bg-black text-white font-medium hover:bg-zinc-600 transition disabled:opacity-60"
+                  onClick={handleLogin}
                 >
                   Get Started
                 </button>
@@ -112,7 +113,14 @@ function HomeClient({
               </button>
             </div>
           </motion.div>
-          <div className=""></div>
+          <motion.div
+            className="relative"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
+            
+          </motion.div>
         </div>
       </section>
     </div>
@@ -126,5 +134,5 @@ export default HomeClient;
 //useEffect me handler function ka kaam yhi h ki jab Dashboard-Logout wala open ho aur use close krna
 // rahe screen pe kahin bhi click krke
 
-//Agar user login nhi hai to "Go to Dashboard" wala button dikhega aur agar login hai to "get Started" 
+//Agar user login nhi hai to "Go to Dashboard" wala button dikhega aur agar login hai to "get Started"
 //wala aur isko email ke through hum ternary operator se check krenge
