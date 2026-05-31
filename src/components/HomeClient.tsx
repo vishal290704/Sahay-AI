@@ -122,8 +122,9 @@ function HomeClient({
             <div className="rounded-2xl bg-white shadow-2xl border border-zinc-200 p-6">
               <div className="text-sm text-zinc-500 mb-3">Live Chat Preview</div>
               <div className="space-y-4">
-                <div className="bg-zinc-100 rounded-lg px-4 py-2 text-sm">Do you offer cash on delivey?</div>
-                <div className="bg-black text-white rounded-lg px-4 py-2 text-sm ml-auto w-fit">Yes, cash on delivery is available.</div>
+                <div className="bg-black text-white rounded-lg px-4 py-2 text-sm ml-auto w-fit">Do you offer cash on delivery?</div>
+                <div className="bg-zinc-100 rounded-lg px-4 py-2 text-sm w-fit">Yes, cash on delivery is available.</div>
+                
               </div>
             </div>
           </motion.div>
