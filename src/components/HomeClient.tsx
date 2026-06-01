@@ -26,6 +26,7 @@ function HomeClient({
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
+  
   return (
     <div className="min-h-screen bg-linear-to-br from-white to-zinc-50 text-zinc-900 overflow-x-hidden">
       <motion.div
@@ -108,9 +109,9 @@ function HomeClient({
                 </button>
               )}
 
-              <button className="px-7 py-3 rounded-xl border border-zinc-300 text-zinc-700 hover:bg-zinc-200 transition">
+              <a href="#feature" className="px-7 py-3 rounded-xl border border-zinc-300 text-zinc-700 hover:bg-zinc-200 transition">
                 Learn More
-              </button>
+              </a>
             </div>
           </motion.div>
           <motion.div
@@ -142,8 +143,23 @@ function HomeClient({
           </motion.div>
         </div>
       </section>
-      <section className="bg-zinc-50 py-28 px-6 border-t border-zinc-200">
-
+      <section 
+      id="feature"
+      className="bg-zinc-50 py-28 px-6 border-t border-zinc-200">
+        <div className="max-w-6xl mx-auto">
+              <motion.h2
+              initial={{opacity:0, y:0}}
+              whileInView={{opacity:1, y:0}}
+              viewport={{once:false}}
+              transition={{duration:1}}
+              className="text-3xl font-semibold text-center"
+              >
+                Why Businesses Choose SahayAI?
+              </motion.h2>
+              <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-10">
+                
+              </div>
+        </div>
       </section>
     </div>
   );
