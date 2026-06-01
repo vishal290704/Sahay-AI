@@ -142,6 +142,9 @@ function HomeClient({
           </motion.div>
         </div>
       </section>
+      <section className="bg-zinc-50 py-28 px-6 border-t border-zinc-200">
+
+      </section>
     </div>
   );
 }
