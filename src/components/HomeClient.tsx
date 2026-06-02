@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { div } from "motion/react-client";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 function HomeClient({
   email,
   firstName,
@@ -28,6 +29,7 @@ function HomeClient({
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
+  const navigate = useRouter()
   const features = [
     {
       title: "Plug & Play",
@@ -81,7 +83,9 @@ function HomeClient({
                     className="absolute right-0 mt-3 w-44 bg-white rounded-xl shadow-xl border
                  border-zinc-200 overflow-hidden"
                   >
-                    <button className="w-full text-left px-4 py-3 text-sm hover:bg-zinc-100">
+                    <button className="w-full text-left px-4 py-3 text-sm hover:bg-zinc-100"
+                    onClick={()=>navigate.push("/dashboard")}
+                    >
                       Dashboard
                     </button>
                     <button className="block w-full text-left px-4 py-3 text-sm text-red-600 hover:bg-zinc-100"
@@ -123,7 +127,9 @@ function HomeClient({
 
             <div className="flex mt-10 gap-4">
               {email ? (
-                <button className="px-7 py-3 rounded-xl bg-black text-white font-medium hover:bg-zinc-600 transition disabled:opacity-60">
+                <button className="px-7 py-3 rounded-xl bg-black text-white font-medium hover:bg-zinc-600 transition disabled:opacity-60"
+                onClick={()=>navigate.push("/dashboard")}
+                >
                   Go to Dashboard
                 </button>
               ) : (
