@@ -1,4 +1,5 @@
-import { Schema } from "mongoose";
+// import { model } from "mongoose";
+import mongoose, {model,Schema } from "mongoose";
 
 interface Isettings{
     ownerId:string
@@ -25,3 +26,6 @@ const settingsSchema = new Schema<Isettings>({
         required:true,
     },
 },{timestamps:true})
+
+const Settings = mongoose.models.Settings || model("Settings", settingsSchema)
+export default Settings
