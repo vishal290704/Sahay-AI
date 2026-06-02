@@ -21,6 +21,23 @@ function DashboardClient({ ownerId }: { ownerId: string }) {
           <button className="px-4 py-2 rounded-lg border border-zinc-300 text-sm hover:bg-zinc-100 transition">Embed ChatBot</button>
         </div>
       </motion.div>
+      <div className="flex justify-center px-4 py-14 mt-20">
+        <motion.div
+        className="w-full max-w-3xl bg-white rounded-2xl shadow-xl p-10"
+        >
+            <div className="mb-10">
+                <h1 className="text-2xl font-semibold">ChatBot Settings</h1>
+                <p className="text-zinc-500 mt-1">Manage your AI chatbot knowledge and business details</p>
+            </div>
+            <div className="mb-10">
+                <h1 className="text-lg font-medium mb-4">Business Details</h1>
+                <div className="space-y-4">
+                    <input type="text" className="w-full rounded-xl border border-zinc-300 px-4 py-3 text-sm focus:outline-none focus:ring-1 focus:ring-black/80" placeholder="Business Name" />
+                    <input type="text" className="w-full rounded-xl border border-zinc-300 px-4 py-3 text-sm focus:outline-none focus:ring-1 focus:ring-black/80" placeholder="Support Email"  />
+                </div>
+            </div>
+        </motion.div>
+      </div>
     </div>
   );
 }
