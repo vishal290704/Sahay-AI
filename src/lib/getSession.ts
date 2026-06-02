@@ -21,5 +21,5 @@ export async function getSession() {
 // iske liye hume email ka first letter ya image dikhana h login button k jagah.
 //callback me session save h user ka jab wo login hojaye, to use callback ke session se access token le aayenge.
 //uss access_token se value lelenge
-//fir result variable me scalekit ke thorigh token save kr lenge
+//fir result variable me scalekit ke through token save kr lenge
 //user ka id 'sub' variable me store h to 'user' variable me user ka 'sub' store kr lenge
