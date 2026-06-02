@@ -65,6 +65,7 @@ function HomeClient({
           <div className="text-lg font-semibold tracking-tight">
             Sahay <span className="text-zinc-400">AI</span>
           </div>
+          
           {email ? (
             <div className="relative" ref={popupRef}>
               <button
@@ -174,8 +175,10 @@ function HomeClient({
               >
                 💬
               </motion.div>
+              
             </div>
           </motion.div>
+          
         </div>
       </section>
       <section
@@ -225,3 +228,189 @@ export default HomeClient;
 
 //Agar user login nhi hai to "Go to Dashboard" wala button dikhega aur agar login hai to "get Started"
 //wala aur isko email ke through hum ternary operator se check krenge
+
+
+//Live chat preview ke liye new wala code niche h
+{
+{/* <motion.div
+  className="relative"
+  initial={{ opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7 }}
+>
+  <div
+    className="
+    relative
+    rounded-3xl
+    border border-zinc-200
+    bg-white
+    shadow-[0_20px_60px_rgba(0,0,0,0.08)]
+    p-6
+    max-w-md
+    overflow-hidden
+    "
+  >
+    {/* Header */}
+//     <div className="flex items-center justify-between mb-6">
+//       <div className="flex items-center gap-3">
+//         <div
+//           className="
+//           h-11 w-11
+//           rounded-2xl
+//           bg-black
+//           text-white
+//           flex items-center justify-center
+//           font-semibold
+//           "
+//         >
+//           AI
+//         </div>
+
+//         <div>
+//           <h3 className="font-semibold text-zinc-900">
+//             Sahay AI
+//           </h3>
+
+//           <div className="flex items-center gap-2">
+//             <span className="h-2 w-2 rounded-full bg-green-500"></span>
+//             <span className="text-xs text-zinc-500">
+//               Online
+//             </span>
+//           </div>
+//         </div>
+//       </div>
+
+//       <div
+//         className="
+//         px-3 py-1
+//         rounded-full
+//         bg-zinc-100
+//         text-zinc-600
+//         text-xs
+//         "
+//       >
+//         Live Demo
+//       </div>
+//     </div>
+
+//     {/* Chat Area */}
+//     <div className="space-y-4">
+//       {/* User Message */}
+//       <div className="flex justify-end">
+//         <div className="max-w-[80%]">
+//           <div
+//             className="
+//             bg-black
+//             text-white
+//             px-4 py-3
+//             rounded-2xl rounded-br-md
+//             text-sm
+//             "
+//           >
+//             Do you offer cash on delivery?
+//           </div>
+
+//           <p className="text-[10px] text-zinc-400 text-right mt-1">
+//             10:32 AM
+//           </p>
+//         </div>
+//       </div>
+
+//       {/* AI Message */}
+//       <div className="flex gap-3">
+//         <div
+//           className="
+//           h-8 w-8
+//           rounded-xl
+//           bg-zinc-900
+//           text-white
+//           flex items-center justify-center
+//           text-xs
+//           font-medium
+//           shrink-0
+//           "
+//         >
+//           AI
+//         </div>
+
+//         <div className="max-w-[80%]">
+//           <div
+//             className="
+//             bg-zinc-100
+//             border border-zinc-200
+//             text-zinc-700
+//             px-4 py-3
+//             rounded-2xl rounded-bl-md
+//             text-sm
+//             "
+//           >
+//             Yes, Cash on Delivery is available for eligible locations. You can confirm availability during checkout.
+//           </div>
+
+//           <p className="text-[10px] text-zinc-400 mt-1">
+//             10:32 AM
+//           </p>
+//         </div>
+//       </div>
+
+//       {/* Typing Indicator */}
+//       <div className="flex gap-3 items-center">
+//         <div
+//           className="
+//           h-8 w-8
+//           rounded-xl
+//           bg-zinc-900
+//           text-white
+//           flex items-center justify-center
+//           text-xs
+//           "
+//         >
+//           AI
+//         </div>
+
+//         <div
+//           className="
+//           px-4 py-3
+//           rounded-2xl
+//           bg-zinc-100
+//           border border-zinc-200
+//           flex gap-1
+//           "
+//         >
+//           <span className="w-2 h-2 rounded-full bg-zinc-400 animate-bounce"></span>
+//           <span
+//             className="w-2 h-2 rounded-full bg-zinc-400 animate-bounce"
+//             style={{ animationDelay: "0.15s" }}
+//           ></span>
+//           <span
+//             className="w-2 h-2 rounded-full bg-zinc-400 animate-bounce"
+//             style={{ animationDelay: "0.3s" }}
+//           ></span>
+//         </div>
+//       </div>
+//     </div>
+
+//     {/* Floating Chat Icon */}
+//     <motion.div
+//       animate={{ y: [0, -8, 0] }}
+//       transition={{
+//         duration: 3,
+//         repeat: Infinity,
+//       }}
+//       className="
+//       absolute
+//       bottom-5
+//       right-5
+//       h-12 w-12
+//       rounded-2xl
+//       bg-black
+//       text-white
+//       flex items-center justify-center
+//       shadow-lg
+//       "
+//     >
+//       💬
+//     </motion.div>
+//   </div>
+// </motion.div> */}
+}
