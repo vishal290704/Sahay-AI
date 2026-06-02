@@ -181,9 +181,12 @@ function HomeClient({
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 className="bg-white rounded-2xl p-8 shadow-lg border border-zinc-200"
-              ></motion.div>
+              >
+                <h1 className="text-lg font-medium">{f.title}</h1>
+                <p className="mt-3 text-zinc-600 text-sm">{f.desc}</p>
+              </motion.div>
             ))}
           </div>
         </div>
