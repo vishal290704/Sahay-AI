@@ -230,7 +230,7 @@ export default HomeClient;
 //wala aur isko email ke through hum ternary operator se check krenge
 
 
-//Live chat preview ke liye new wala code niche h
+//Live chat preview ke liye new wala code:-
 {
 {/* <motion.div
   className="relative"
