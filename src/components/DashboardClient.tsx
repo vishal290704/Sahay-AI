@@ -1,9 +1,13 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "motion/react";
 import { useRouter } from "next/navigation";
 function DashboardClient({ ownerId }: { ownerId: string }) {
     const navigate = useRouter()
+    const [businessName, setBusinessName] = useState("")
+    const [supportEmail, setSupportEmail] = useState("")
+    const [knowledge, setKnowledge] = useState("")
+
   return (
     <div className="min-h-screen bg-zinc-50 text-zinc-900">
       <motion.div
@@ -34,16 +38,23 @@ function DashboardClient({ ownerId }: { ownerId: string }) {
                 <h1 className="text-lg font-medium mb-4">Business Details</h1>
                 <div className="space-y-4">
                     <input type="text" className="w-full rounded-xl border border-zinc-300 px-4 py-3 text-sm 
-                    focus:outline-none focus:ring-1 focus:ring-black/80" placeholder="Business Name" />
+                    focus:outline-none focus:ring-1 focus:ring-black/80" placeholder="Business Name" 
+                    onChange={(e)=>setBusinessName(e.target.value)}
+                    value={businessName}
+                    />
 
                     <input type="text" className="w-full rounded-xl border border-zinc-300 px-4 py-3 text-sm
-                     focus:outline-none focus:ring-1 focus:ring-black/80" placeholder="Support Email"  />
+                     focus:outline-none focus:ring-1 focus:ring-black/80" placeholder="Support Email" 
+                     onChange={(e)=>setSupportEmail(e.target.value)}
+                     value={supportEmail}
+                     />
                 </div>
             </div>
 
             
              <div className="mb-10">
-                <h1 className="text-lg font-medium mb-4">Knowledge</h1>
+                <h1 className="text-lg font-medium mb-4">Knowledge Base</h1>
+                <p className="text-sm text-zinc-500 mb-4">Add FAQs, policies, delivery info, refunds, etc.</p>
                 <div className="space-y-4">
                    <textarea
   className="w-full h-54 rounded-xl border border-zinc-300 px-4 py-3 text-sm
@@ -56,8 +67,18 @@ function DashboardClient({ ownerId }: { ownerId: string }) {
 • Cash on Delivery: Available for eligible locations
 • Support Hours: Monday–Saturday, 9:00 AM – 6:00 PM
 • Contact Email: support@company.com`}
+onChange={(e)=>setKnowledge(e.target.value)} value={knowledge}
 />
                 </div>
+            </div>
+            <div className="flex items-center gap-5">
+                <motion.button
+                className="px-7 py-3 rounded-xl bg-black text-white text-sm font-medium hover:bg-zinc-800 transition disabled:opacity-60"
+                whileHover={{scale:1.03}}
+                whileTap={{scale:0.97}}
+                >
+                    Save
+                </motion.button>
             </div>
         </motion.div>
       </div>
