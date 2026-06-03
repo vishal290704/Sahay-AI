@@ -1,13 +1,47 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { useRouter } from "next/navigation";
+import axios from "axios";
 function DashboardClient({ ownerId }: { ownerId: string }) {
     const navigate = useRouter()
     const [businessName, setBusinessName] = useState("")
     const [supportEmail, setSupportEmail] = useState("")
     const [knowledge, setKnowledge] = useState("")
+    const [loading, setLoading] = useState(false)
+    const [saved, setSaved] = useState(false)
 
+
+    const handleSettings= async ()=>{
+        setLoading(true)
+        try {
+            const result = await axios.post("/api/settings",{ownerId, businessName, supportEmail, knowledge})
+            console.log(result.data)
+            setLoading(false)
+            setSaved(true)
+            setTimeout(()=>setSaved(false), 3000)
+        } catch (error) {
+            console.log(error)
+            setLoading(false)
+        }
+    }
+
+    useEffect(()=>{
+        if(ownerId){
+            const handleGetDetails = async ()=>{
+               try {
+            const result = await axios.post("/api/settings/get",{ownerId})
+                setBusinessName(result.data.businessName)
+                setSupportEmail(result.data.supportEmail)
+                setKnowledge(result.data.knowledge)
+  
+        } catch (error) {
+            console.log(error)
+        }
+            }
+            handleGetDetails()
+        }
+    },[ownerId])
   return (
     <div className="min-h-screen bg-zinc-50 text-zinc-900">
       <motion.div
@@ -75,10 +109,19 @@ onChange={(e)=>setKnowledge(e.target.value)} value={knowledge}
                 <motion.button
                 className="px-7 py-3 rounded-xl bg-black text-white text-sm font-medium hover:bg-zinc-800 transition disabled:opacity-60"
                 whileHover={{scale:1.03}}
+                disabled={loading}
+                onClick={handleSettings}
                 whileTap={{scale:0.97}}
                 >
-                    Save
+                    {loading?"Saving...":"Save"}
                 </motion.button>
+             {saved  &&    <motion.span
+             initial={{opacity:0, y:6}}
+             animate={{opacity:1, y:0}}
+             className="text-sm font-medium text-emerald-600"
+             >
+                    ✔️ Settings Saved
+                </motion.span> }
             </div>
         </motion.div>
       </div>
