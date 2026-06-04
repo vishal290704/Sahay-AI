@@ -1,4 +1,6 @@
+import connectDB from "@/lib/db";
 import Settings from "@/model/settings.model";
+import { GoogleGenAI } from "@google/genai";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req:NextRequest) {
@@ -10,6 +12,8 @@ export async function POST(req:NextRequest) {
                 {status:400}
             )
         }
+
+        await connectDB()
         const settings = await Settings.findOne({ownerId})
         if(!settings){
              return NextResponse.json(
@@ -18,9 +22,9 @@ export async function POST(req:NextRequest) {
             )
         }
         const KNOWLEDGE = `
-        business name- ${settings.businessName} || not provided
-        support email- ${settings.supportEmail} || not provided
-        knowledge- ${settings.knowledge} || not provided
+        business name- ${settings.businessName || "not provided"}
+        support email- ${settings.supportEmail || "not provided"}
+        knowledge- ${settings.knowledge || "not provided"}
 
         `
 
@@ -50,7 +54,17 @@ export async function POST(req:NextRequest) {
         -------------------------
          `;
 
+         const ai = new GoogleGenAI({apiKey:process.env.GEMINI_API_KEY});
+          const response = await ai.models.generateContent({
+    model: "gemini-2.5-flash",
+    contents: prompt,
+  });
+
+  return NextResponse.json(response)
     } catch (error) {
-        
+         return NextResponse.json(
+                {message:`Error ${error}`},
+                {status:500}
+            )
     }
 }
