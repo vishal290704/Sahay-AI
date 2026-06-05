@@ -27,7 +27,6 @@ export async function POST(req:NextRequest) {
         knowledge- ${settings.knowledge || "not provided"}
 
         `
-
         const prompt = `
         You are a professional customer support assistant for this business.
         
