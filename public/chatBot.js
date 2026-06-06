@@ -47,7 +47,7 @@
     zIndex: "999999",
   });
 
-  box.innerHTML= `<div style="
+  box.innerHTML = `<div style="
  background: #000;
 color: #fff;
 padding: 12px 14px;
@@ -58,6 +58,50 @@ justify-content: space-between;
   <span>Customer Support</span>
   <span id="chat-close" style="cursor:pointer; font-size:16px">x</span>
   
-  </div>`
-  document.body.appendChild(box); 
+  </div>
+  <div id= "chat-messages" style="
+  flex:1;
+  padding:12px;
+  overflow-y:auto;
+  background: #f9fafb;
+  display: flex;
+  flex-direction: column;
+  "></div>
+
+ <div
+      style="
+        display: flex;
+        border-top: 1px solid #e5e7eb;
+        padding: 8px;
+        gap: 6px;
+      "
+    >
+      <input
+        id="chat-input"
+        type="text"
+        placeholder="Type a message"
+        style="
+          flex: 1;
+          padding: 8px 10px;
+          border: 1px solid #d1d5db;
+          border-radius: 8px;
+          font-size: 13px;
+          outline: none;
+        "
+      />
+      <button
+      style="
+      padding: 8px 12px;
+      border:none;
+      background: #000;
+      color: #fff;
+      border-radius: 8px;
+      font-size: 13px;
+      cursor: pointer;
+      "
+      >Send</button>
+    </div>
+  
+  `;
+  document.body.appendChild(box);
 })();
