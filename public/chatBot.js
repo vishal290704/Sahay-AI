@@ -1,3 +1,5 @@
+const { color } = require("motion");
+
 (function () {
   const api_Url = "http://localhost:3000/api/chat";
   const scriptTag = document.currentScript;
@@ -109,4 +111,31 @@ justify-content: space-between;
   button.onclick=() => {
     box.style.display = box.style.display === "none"?"flex":"none"
   }
+
+  document.querySelector("#chat-close").onclick=()=>{
+     box.style.display = "none"
+  }
+
+  const input = document.querySelector("#chat-close")
+  const sendBtn = document.querySelector("#chat-send")
+  const messageArea = document.querySelector("#chat-messages")
+
+  function addMessage(text, from){
+    const bubble = document.createElement("div")
+    bubble.innerHTML = text
+    Object.assign(bubble.style, {
+      maxWidth:"78%",
+      padding: "8px 12px",
+      borderRadius: "14px",
+      fontSize:"13px",
+      lineHeight:"1.4",
+      marginBottom: "8px",
+      alignSelf: from === "user" ? "flex-end" : "flex-start",
+      background: from === "user" ? "#000" : "#e5e7eb",
+      color: from === "user" ? "#fff" : "#111",
+      borderTopRightRadius: from === "user" ? "4px" : "14px",
+      borderTopLeftRadius: from === "user" ? "14px" : "4px",
+    })
+  }
+
 })();
