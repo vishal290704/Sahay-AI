@@ -40,7 +40,7 @@
     background: "#fff",
     borderRadius: "14px",
     boxShadow: "0 25px 60px rgba(0,0,0,0.25)",
-    display: "flex",
+    display: "none",
     fontFamily: "Inter, system-ui, sans-serif",
     overflow: "hidden",
     flexDirection: "column",
@@ -90,6 +90,7 @@ justify-content: space-between;
         "
       />
       <button
+      id="chat-send" 
       style="
       padding: 8px 12px;
       border:none;
