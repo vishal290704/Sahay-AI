@@ -105,4 +105,8 @@ justify-content: space-between;
   
   `;
   document.body.appendChild(box);
+
+  button.onclick=() => {
+    box.style.display = box.style.display === "none"?"flex":"none"
+  }
 })();
