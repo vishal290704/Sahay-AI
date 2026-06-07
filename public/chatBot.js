@@ -1,4 +1,3 @@
-const { color } = require("motion");
 
 (function () {
   const api_Url = "http://localhost:3000/api/chat";
@@ -116,7 +115,7 @@ justify-content: space-between;
      box.style.display = "none"
   }
 
-  const input = document.querySelector("#chat-close")
+  const input = document.querySelector("#chat-input")
   const sendBtn = document.querySelector("#chat-send")
   const messageArea = document.querySelector("#chat-messages")
 
@@ -146,6 +145,18 @@ justify-content: space-between;
       return
     }
     addMessage(text, "user")
+    input.value=""
+
+    const typing = document.createElement("div")
+    typing.innerHTML = "Typing..."
+    Object.assign(typing.style,{
+      fontSize: "12px",
+      color: "#6b7280",
+      marginBottom: "8px",
+      alignSelf: "flex-start",
+    })
+    messageArea.appendChild(typing)
+    messageArea.scrollTop = messageArea.scrollHeight
   }
 
 })();
