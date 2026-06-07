@@ -17,7 +17,7 @@ export async function GET(req: NextRequest) {
 
   console.log("Redirect URI:", redirectUri);
 
-  const url = scalekit.getAuthorizationUrl(redirectUri);
+  const url = scalekit.getAuthorizationUrl(redirectUri,{prompt:"login"});
 
   console.log(url);
 

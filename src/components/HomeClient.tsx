@@ -12,6 +12,7 @@ function HomeClient({
   firstName: string;
 }) {
   const handleLogin = () => {
+    setLoading(true)
     window.location.href = "/api/auth/login";
   };
   const firstLetter = email ? email[0].toUpperCase() : "";
@@ -20,6 +21,7 @@ function HomeClient({
   //   : "";
   const [open, setOpen] = useState(false);
   const popupRef = useRef<HTMLDivElement>(null);
+  const [loading, setLoading] = useState(false)
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       if (popupRef.current && !popupRef.current.contains(e.target as Node))
@@ -103,8 +105,9 @@ function HomeClient({
               className="px-5 py-2 rounded-full bg-black text-white text-sm font-medium
                  hover:bg-zinc-800 transition disabled:opacity-60 flex items-center gap-2"
               onClick={handleLogin}
+              disabled={loading}
             >
-              Login
+              {loading?"Loading...":"Login"}
             </button>
           )}
         </div>
