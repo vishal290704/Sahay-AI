@@ -5,18 +5,18 @@ import { motion } from "motion/react";
 
 function EmbedClient({ ownerId }: { ownerId: string }) {
   const navigate = useRouter();
-  const [copies, setCopied] = useState(false)
+  const [copies, setCopied] = useState(false);
   const embedCode = `  
     <script
       src="${process.env.NEXT_PUBLIC_APP_URL}/chatBot.js"
       data-owner-id="${ownerId}">
     </script>`;
 
-    const copyCode = ()=>{
-        navigator.clipboard.writeText(embedCode)
-        setCopied(true)
-        setTimeout(()=>setCopied(false), 2000)
-    }
+  const copyCode = () => {
+    navigator.clipboard.writeText(embedCode);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
   return (
     <div>
       <div className="min-h-screen bg-zinc-50 text-zinc-900">
@@ -55,8 +55,8 @@ function EmbedClient({ ownerId }: { ownerId: string }) {
                 {copies?"Copied ✔️":"Copy"}
               </button> */}
               <button
-              onClick={copyCode}
-  className={`
+                onClick={copyCode}
+                className={`
     absolute top-3 right-3
     flex items-center gap-1.5
     px-3 py-1.5
@@ -71,54 +71,60 @@ function EmbedClient({ ownerId }: { ownerId: string }) {
         : "bg-white/80 text-zinc-700 border-zinc-200 hover:bg-white hover:border-zinc-300 hover:shadow-md"
     }
   `}
->
-  {copies ? (
-    <>
-      <span>✓</span>
-      <span>Copied</span>
-    </>
-  ) : (
-    <>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-3.5 w-3.5"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={2}
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2M10 8h8a2 2 0 012 2v8a2 2 0 01-2 2h-8a2 2 0 01-2-2v-8a2 2 0 012-2z"
-        />
-      </svg>
-      <span>Copy</span>
-    </>
-  )}
-</button>
+              >
+                {copies ? (
+                  <>
+                    <span>✓</span>
+                    <span>Copied</span>
+                  </>
+                ) : (
+                  <>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-3.5 w-3.5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2M10 8h8a2 2 0 012 2v8a2 2 0 01-2 2h-8a2 2 0 01-2-2v-8a2 2 0 012-2z"
+                      />
+                    </svg>
+                    <span>Copy</span>
+                  </>
+                )}
+              </button>
             </div>
 
             <ol className="space-y-3 text-sm text-zinc-600 list-decimal list-inside">
-                <li>Copy the embed script</li>
-                <li>Paste it before the closing body tag</li>
-                <li>Reoload your website</li>
+              <li>Copy the embed script</li>
+              <li>Paste it before the closing body tag</li>
+              <li>Reoload your website</li>
             </ol>
 
             <div className="mt-14">
-                <h1 className="text-lg font-medium mb-2">Live Preview</h1>
-                <p className="text-sm text-zinc-500 mb-6">This is how the chatbot will appear on your website</p>
+              <h1 className="text-lg font-medium mb-2">Live Preview</h1>
+              <p className="text-sm text-zinc-500 mb-6">
+                This is how the chatbot will appear on your website
+              </p>
 
-  <div className="rounded-xl border border-zinc-300 bg-white shadow-md overflow-hidden">
-    <div className="flex items-center gap-2 px-4 h-9 bg-zinc-100 border-b border-zinc-200" >
-        <span className="w-2.5 h-2.5 rounded-full bg-red-400"/>
-        <span className="w-2.5 h-2.5 rounded-full bg-yellow-400"/>
-        <span className="w-2.5 h-2.5 rounded-full bg-green-400"/>
-        <span className=""/>
-    </div>
+              <div className="rounded-xl border border-zinc-300 bg-white shadow-md overflow-hidden">
+                <div className="flex items-center gap-2 px-4 h-9 bg-zinc-100 border-b border-zinc-200">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-400" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-green-400" />
+                  <span className="ml-4 text-xs text-zinc-500">
+                    Your website.com
+                  </span>
+                </div>
 
-  </div>
-
+                <div className="relative h-64 sm:h-72 p-6 text-zinc-400 text-sm">
+                    Your website goes here
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
