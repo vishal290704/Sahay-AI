@@ -98,6 +98,12 @@ function EmbedClient({ ownerId }: { ownerId: string }) {
   )}
 </button>
             </div>
+
+            <ol className="space-y-3 text-sm text-zinc-600 list-decimal list-inside">
+                <li>Copy the embed script</li>
+                <li>Paste it before the closing body tag</li>
+                <li>Reoload your website</li>
+            </ol>
           </motion.div>
         </div>
       </div>
