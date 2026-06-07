@@ -136,6 +136,16 @@ justify-content: space-between;
       borderTopRightRadius: from === "user" ? "4px" : "14px",
       borderTopLeftRadius: from === "user" ? "14px" : "4px",
     })
+    messageArea.appendChild(bubble)
+    messageArea.scrollTop = messageArea.scrollHeight
+  }
+
+  sendBtn.onclick=()=>{
+    const text = input.value.trim()
+    if(!text){
+      return
+    }
+    addMessage(text, "user")
   }
 
 })();
