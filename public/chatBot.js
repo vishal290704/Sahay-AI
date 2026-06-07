@@ -139,7 +139,7 @@ justify-content: space-between;
     messageArea.scrollTop = messageArea.scrollHeight
   }
 
-  sendBtn.onclick=()=>{
+  sendBtn.onclick=async ()=>{
     const text = input.value.trim()
     if(!text){
       return
@@ -157,6 +157,26 @@ justify-content: space-between;
     })
     messageArea.appendChild(typing)
     messageArea.scrollTop = messageArea.scrollHeight
+
+ try {
+    const response = await fetch(api_Url,{
+      method:"POST",
+      headers:{"content-Type":"application/json"},
+      body:JSON.stringify({
+        ownerId, message:text
+      })
+    })
+    const data =await response.json()
+    messageArea.removeChild(typing)
+    addMessage(data || "something went wrong", "ai")
+  } catch (error) {
+    console.log(error)
+    messageArea.removeChild(typing)
+    addMessage(data || "something went wrong", "ai")
   }
+
+  }
+
+ 
 
 })();
