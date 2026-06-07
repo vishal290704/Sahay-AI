@@ -5,6 +5,11 @@ import { motion } from "motion/react";
 
 function EmbedClient({ ownerId }: { ownerId: string }) {
   const navigate = useRouter();
+  const embedCode = `  
+    <script
+      src="${process.env.NEXT_PUBLIC_APP_URL}/chatBot.js"
+      data-owner-id="${ownerId}">
+    </script>`;
   return (
     <div>
       <div className="min-h-screen bg-zinc-50 text-zinc-900">
@@ -32,12 +37,13 @@ function EmbedClient({ ownerId }: { ownerId: string }) {
             className="w-full max-w-4xl bg-white rounded-2xl shadow-xl p-10"
           >
             <h1 className="text-2xl font-semibold mb-2">Embed ChatBot</h1>
-            <p>Copy and paste this code before<code>&lt;/body&gt;</code></p>
+            <p>
+              Copy and paste this code before<code>&lt;/body&gt;</code>
+            </p>
 
             <div className="relative bg-zinc-900 text-zinc-100 rounded-xl p-5 text-sm font-mono mb-10">
-
+              <pre>{embedCode}</pre>
             </div>
-
           </motion.div>
         </div>
       </div>
